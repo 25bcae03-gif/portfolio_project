@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4fa17c78d5.js" crossorigin="anonymous"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAh2oRoNcp1RtP9PhbtgK9RpAX8lPz-h-A",
+            authDomain: "portfolio-da437.firebaseapp.com",
+            projectId: "portfolio-da437",
+            storageBucket: "portfolio-da437.firebasestorage.app",
+            messagingSenderId: "990557957288",
+            appId: "1:990557957288:web:a620597d43a04077fbe69d"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    
+</head>
+<body>
+    <div class="header">
+       <div class="container">
+        <nav>
+            <img src="images/logo8.png" alt="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Interest</a></li>
+                <li><a href="#portfolio">portfolio</a></li>
+                <li><a href="#contact">Contact us</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+
+        </nav>
+        <div class="header-text">
+            
+              <h1>Hi I'm <span id="profile-name"></span></h1>
+              <p id="web-me"></p>
+        </div>
+     </div>
+    </div>
+
+<div id="about"> 
+  <div class="container">
+    <div class="row">
+        <div class="about-col-1">
+            <img src="images/user.png" alt="">
+        </div>
+        <div class="about-col-2">
+            <h1 class="sub-title" >About Me</h1>
+            <p id="profile-about"></p>
+            <div class="tab-title">
+                <p class="tab-links active-link" onclick="opentab('skills')">skills</p>
+                <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                <p class="tab-links" onclick="opentab('education')">Education</p>
+                <p class="tab-links" onclick="opentab('course')">Course</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills"></div>
+            <div class="tab-contents" id="experience"></div>
+            <div class="tab-contents" id="education"></div>
+            <div class="tab-contents" id="course"></div>
+        </div>
+    </div>
+  </div>  
+</div>
+
+<div id="services">
+    <div class="container">
+ <h1 class="sub-title">My Interest</h1>
+ <div class="services-list" id="services-container">
+    <div class="service">
+        <i class="fa-solid fa-code"></i>
+        
+        <h2 class="interest"></h2>
+        <p class="interest_desc"></p>
+        <a href="#">Learn more</a>   
+     </div>
+     <div class="service">
+        <i class="fa-solid fa-crop-simple"></i>
+        <h2 class="interest-title"></h2>
+        <p class="interest_desc"></p>
+        <a href="#">Learn more</a>   
+     </div>
+     <div class="service">
+        <i class="fa-brands fa-app-store"></i>
+        <h2 class="interest-title"></h2>
+        <p class="interest_desc"></p>
+        <a href="#">Learn more</a>   
+     </div>
+ </div>
+</div>
+
+<!-- Portfolio Section -->
+ <div id="portfolio">
+<div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list" id="work-container">
+        <div class="work">
+            <img src="images/work-1.png" alt="">
+            <div class="layer">
+                <h3 id="work-title"></h3>
+                <p id="work_desc"></p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="images/work-2.png" alt="">
+            <div class="layer">
+                <h3 id="work-title"></h3>
+                <p id="work_desc"></p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="work">
+            <img src="images/work-3.png" alt="">
+            <div class="layer">
+                <h3 id="work-title"></h3>
+                <p id="work_desc"></p>
+                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn">See more</a>
+</div>
+ </div>
+
+
+<!-- Contact Section -->
+ <div id="contact">
+    <div class="container">
+      <div class="row"  >
+        <div class="contact-left">
+            <h1 class="sub-title">Contact Me</h1>
+            <p><i class="fa fa-envelope"></i>
+                <a  id="email-me" href="" style="color: white;"></a></p>
+            <p ><i class="fa-solid fa-square-phone-flip"></i>
+            <a id="contact-me"  style="color: white;"></a></p>
+            <div class="social-icons">
+                <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/webwithaditya?igsh=MXBzMDc3ajJibXNobw=="><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+                      
+            </div>
+            <a href="images/cv1.pdf" download class="btn btn2">Download CV</a>
+        </div>
+         <div class="contact-right">
+            <form  name="submit-to-google-sheet" id="contactForm">
+                <input type="text" name="Name" placeholder="Your Name" required="">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                <button type="submit" class="btn btn2">submit</button>
+            </form>
+            <span id="msg"></span>
+         </div>
+      </div>
+    </div>
+<div class="copyright">
+    <p>Copyright @ aditya. Made with<i class="fa-solid fa-heart"></i> by Easy Way </p>
+</div>
+ </div>
+
+ 
+ <script src="script.js"></script>
+<script>     /* clicking on the skills and experience  and  education it will hide*/
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+        tablink.classList.remove("active-link");
+    }
+    for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link")    
+    document.getElementById(tabname).classList.add("active-tab");
+
+}
+</script>
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+     function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
+
+</body>
+</html>
+/* node server.js*/
